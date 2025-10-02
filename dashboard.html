@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M4B Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" src="dashboard.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- 🧭 Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="logo">
+        <img src="events.png" alt="M4B Logo" />
+        <span>M4B Events</span>
+      </div>
+      <ul>
+        <li><a href="javascript:void(0)" id="dashboard-link"><i class="fas fa-home"></i> <span class="nav-item">Dashboard</span></a></li>
+        <li><a href="javascript:void(0)" id="profile-link"><i class="fas fa-user"></i> <span class="nav-item">Profile</span></a></li>
+        <li><a href="javascript:void(0)" id="reservation-link"><i class="fas fa-calendar-check"></i> <span class="nav-item">Reservation</span></a></li>
+        <li><a href="javascript:void(0)" id="settings-link"><i class="fas fa-cog"></i> <span class="nav-item">Settings</span></a></li>
+        <li><a href="javascript:void(0)" id="faq-link"><i class="fas fa-question-circle"></i> <span class="nav-item">FAQ</span></a></li>
+        <li><a href="javascript:void(0)" id="logout-link"><i class="fas fa-sign-out-alt"></i> <span class="nav-item">Logout</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- 🧱 Main Content -->
+    <div class="main">
+      <!-- 👋 Welcome Message with Notification -->
+      <section class="user-info">
+        <div class="welcome-row">
+          <h3>Welcome, <span id="loggedUsername">Airich</span>!</h3>
+          <div id="notification-icon" class="notif-icon">
+            <i class="fas fa-bell"></i>
+          </div>
+        </div>
+        <p class="welcome-subtext">Here's your schedule and updates for today.</p>
+        <div id="notification-panel" class="notification-panel">
+          <div class="notif-header">
+            <span>Notifications</span>
+            <button id="close-notif" class="close-btn">&times;</button>
+          </div>
+          <ul id="notification-list"></ul>
+        </div>
+      </section>
+
+      <!-- 📊 Dashboard Cards -->
+      <section class="dashboard-cards">
+        <div class="card">
+          <h4>Today's Reservations</h4>
+          <p class="card-count">0</p>
+          <button class="card-btn">View all</button>
+        </div>
+        <div class="card">
+          <h4>Pending Confirmations</h4>
+          <p class="card-count">0</p>
+          <button class="card-btn">View all</button>
+        </div>
+        <div class="card">
+          <h4>Upcoming Events</h4>
+          <p class="card-count">5</p>
+          <button class="card-btn">View all</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

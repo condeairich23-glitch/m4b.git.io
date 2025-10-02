@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M4B Events & Play</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div id="splash">
+    <div class="splash-bg"></div>
+    <div class="splash-content">
+      <img src="events.png" alt="Basketball Logo" />
+      <h1>M4B Events & Play</h1>
+      <div class="dot-loader five">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-wrapper" style="display: none;">
+    <div class="main-wrapper">
+      
+      <nav class="sticky-nav">
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#contacts">CONTACTS</a></li>
+        </ul>
+        <button id="loginToggle">LOGIN</button>
+      </nav>
+
+      <!-- Login Container -->
+      <div id="loginPanel" class="form-container hidden">
+        <button id="closeLogin" class="close-btn">✖</button>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="form-panel active">
+          <h3>Login</h3>
+          <form id="loginFormElement">
+            <input type="text" placeholder="Username" required />
+            <input type="password" placeholder="Password" required />
+            <input type="submit" value="Login" />
+            <div class="form-links">
+              <a href="#" id="toRegister">Register</a>
+              <a href="#" id="toForgot">Forgot Password?</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" class="form-panel">
+          <h3>Register</h3>
+          <form id="registerFormElement">
+            <input type="text" placeholder="Username" required />
+            <input type="email" placeholder="Email Address" required />
+            <input type="text" placeholder="Contact Number" required />
+            <input type="password" placeholder="Password" required />
+            <input type="submit" value="Register" />
+            <div class="form-links">
+              <a href="#" id="backToLogin1">Back to Login</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotForm" class="form-panel">
+          <h3>Reset Password</h3>
+          <form id="forgotFormElement">
+            <input type="text" placeholder="Username" required />
+            <input type="text" placeholder="Contact Number" required />
+            <input type="submit" value="Send Verification Code" />
+            <div class="form-links">
+              <a href="#" id="backToLogin2">Back to Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- HOME Section -->
+      <section class="section home-section" id="home">
+        <div class="welcome">
+          <h2>M4B Events and Play</h2>
+          <p>Play Smarter. Book Faster.<br>Reserve courts and manage your play sessions with M4B — simple and reliable.</p>
+          <a href="#" class="reserve-now-btn" id="reserveNowBtn">Reserve Now</a>
+        </div>
+      </section>
+
+      <!-- ABOUT Section -->
+      <section class="section about-section" id="about">
+        <div class="content-panel">
+          <h2>About Us</h2>
+          <p>M4B is built for athletes, teams, and organizers who want fast, reliable court reservations. We simplify scheduling so you can focus on playing.</p>
+        </div>
+      </section>
+
+      <!-- CONTACTS Section -->
+      <section class="section contacts-section" id="contacts">
+        <div class="content-panel">
+          <h2>Contact Us</h2>
+          <p>Reach out via email, phone, or social media. We’re here to help you book smarter and play better.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

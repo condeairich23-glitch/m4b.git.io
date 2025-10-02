@@ -1,0 +1,357 @@
+/* 🌐 Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #fff8f0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* 🌀 Splash Screen */
+#splash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+}
+
+.splash-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('courtt.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px black;
+}
+
+.splash-content img {
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.splash-content h1 {
+  font-size: 2.5rem;
+  color: #e74c18;
+}
+
+/* 🔵 5-Dot Loader */
+.dot-loader.five {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+  z-index: 2;
+}
+
+.dot-loader.five span {
+  width: 16px;
+  height: 16px;
+  background-color: #c95d06;
+  border-radius: 50%;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.dot-loader.five span:nth-child(1) { animation-delay: 0s; }
+.dot-loader.five span:nth-child(2) { animation-delay: 0.15s; }
+.dot-loader.five span:nth-child(3) { animation-delay: 0.3s; }
+.dot-loader.five span:nth-child(4) { animation-delay: 0.45s; }
+.dot-loader.five span:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* 🎬 Transitions */
+.fade-out {
+  animation: splashFadeOut 1s ease forwards;
+}
+
+@keyframes splashFadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.95); visibility: hidden; }
+}
+
+.fade-in {
+  animation: layoutFadeIn 1s ease forwards;
+}
+
+@keyframes layoutFadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Scroll Wrapper */
+.scroll-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* Main Wrapper */
+.main-wrapper {
+  width: 85%;
+  max-width: 1800px;
+  margin: 0 auto;
+  border: 36px solid white;
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.25);
+  background-color: #fff8f0;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+/* Sticky Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff8f0;
+  border-bottom: 2px solid white;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+/* Center nav links */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex: 1;
+}
+
+nav ul li a {
+  color: #e7820f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Login button aligned right */
+#loginToggle {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-left: auto;
+}
+
+/* Fixed Right Login Form */
+.form-container {
+  position: absolute;
+  top: 100px;
+  right: 160px;
+  width: 360px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: white;
+  padding: 28px;
+  color: #e7820f;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  border: 4px solid #e7820f;
+  z-index: 999;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.form-container.hidden {
+  transform: translateX(120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-container.visible {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Form Panels */
+.form-panel { display: none; }
+.form-panel.active { display: block; }
+
+.form-panel h3 {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  color: #e7820f;
+}
+
+.form-panel form input[type="text"],
+.form-panel form input[type="email"],
+.form-panel form input[type="password"],
+.form-panel form input[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 2px solid #e7820f;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form-panel form input[type="submit"] {
+  background-color: #ff4d4d;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.form-links a {
+  color: #e7820f;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #e7820f;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Section Layout */
+.section {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 80px 40px;
+}
+
+/* HOME Section */
+.home-section {
+  background-color: #e7820f;
+  color: white;
+}
+
+.home-section .welcome {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.home-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+}
+
+.home-section p {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+}
+
+/* Reserve Button */
+.reserve-now-btn {
+  background-color: #ffd700;
+  color: #e7820f;
+  padding: 20px 40px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.reserve-now-btn:hover {
+  background-color: #ffe066;
+  transform: translateY(-2px);
+}
+
+/* ABOUT & CONTACTS Sections */
+.about-section,
+.contacts-section {
+  background-color: #fff8f0;
+}
+
+.content-panel {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-panel h2 {
+  font-size: 2.4rem;
+  color: #e7820f;
+  margin-bottom: 20px;
+}
+
+.content-panel p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+
+/* ✅ Updated Message Styling */
+.messageDiv {
+  background-color: hsl(327, 90%, 28%);
+  color: #fff8f0;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease, height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
+}
+
+.messageDiv.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+
